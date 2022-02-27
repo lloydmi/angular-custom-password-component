@@ -1,0 +1,28 @@
+<div class="ui-container">
+    <div class="ui-input-container">
+        <form [formGroup]="formGroup">
+            <div>
+                <app-password-input
+                    formControlName="password"
+                    label="Password"
+                    customErrorName="passwordStrength"
+                    [customErrorMessage]="invalidPasswordMessage"></app-password-input>
+            </div>
+            <div>
+                <app-password-input
+                    formControlName="confirm"
+                    label="Confirm Password"
+                    customErrorName="passwordMismatch"
+                    [customErrorMessage]="confirmPasswordMessage"></app-password-input>
+            </div>
+        </form>
+    </div>
+    <div>
+        <span>Form values</span>
+        <pre>{{ formGroup.value | json}}</pre>
+    </div>
+    <div>
+        <span>Form Errors</span>
+        <pre>{{ formGroup.get('password').errors | json }}</pre>
+    </div>
+</div>
